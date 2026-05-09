@@ -9,7 +9,7 @@ This repository serves as a specialized technical portfolio focusing on **Threat
 | [SideWinder APT Execution](./SideWinder_APT_Execution_Telemetry.md) | .lnk Payload & DLL Sideloading | Sysmon (ID 1) |
 | [Blue Locker Ransomware](./BlueLocker_Ransomware_Telemetry.md) | High-Velocity Encryption | Windows (ID 4663) |
 | [Inferno Drainer Fraud](./InfernoDrainer_CryptoFraud_Telemetry.md) | Entropic JS UUID Bypass | Web Proxy / WAF |
-| [Multi-Stage Attack Timeline](./Master_Attack_Timeline.md) | **Elite Differentiator** | Multi-Source Correlation |
+| [Multi-Stage Attack Chain](./Full_Attack_Chain_Telemetry.md) | **Elite Differentiator** | Multi-Source Correlation |
 
 ## 🛠️ Technical Skillset
 * **Log Analysis:** Expert-level triage of Sysmon, Windows Event Logs, and WAF telemetry.
