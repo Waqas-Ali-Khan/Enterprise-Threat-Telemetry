@@ -26,26 +26,3 @@
   "ParentImage": "C:\\Windows\\explorer.exe",
   "ParentCommandLine": "C:\\Windows\\explorer.exe"
 }
-
-
-## 3. Operator Analysis
-The extracted Sysmon telemetry confirms a targeted execution:
-* **The Trigger (ParentImage):** The process was spawned by `explorer.exe`, indicating the user manually clicked the deceptive file on their Desktop.
-* **The Evasion (CommandLine):** The attacker utilized `-WindowStyle Hidden` to execute without a console window appearing, and `-ExecutionPolicy Bypass` to circumvent local PowerShell restrictions.
-* **The Payload (EncodedCommand):** A Base64 string was passed directly to the command line, preventing the payload from ever touching the disk where traditional Antivirus engines scan.
-
-## 4. Detection Logic
-*This section requires cross-linking to the Detection Engineering repository.*
-* **Sigma Rule Deployment:** [Link to Sigma Rule for PowerShell Bypass Flags]
-* **Wazuh XML Decoder:** [Link to Custom Decoder]
-
-## 5. Response Strategy (Tier-1 Containment)
-Upon validation of this Event ID 1 alert:
-* **Network Containment:** Immediately isolate the affected host (`CORP\Victim`) from the internal network using EDR network quarantine to prevent C2 beaconing or lateral movement.
-* **Process Termination:** Terminate the active `powershell.exe` process (PID: 4012).
-* **Artifact Acquisition:** Retrieve the source `.lnk` file from `C:\Users\Victim\Desktop\` for reverse engineering and exact C2 extraction.
-* **Credential Reset:** Force a password reset for `CORP\Victim` and revoke active session tokens.
-
-## 6. Screenshots
-*This section requires cross-linking to the Detection Engineering repository.*
-* **SIEM Visualization:** [Link to Wazuh Alert Screenshot]
